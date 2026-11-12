@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nour Abusultan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Nour Abusultan — Marketing, UX/UI and Mobile Computing. Gaza, Palestine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=El+Messiri:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap">
+<style>
+/* Layout: one hub for every field. Numbered sections (01 About, 02 Fields, 03 Work, 04 Credentials), filterable case cards that open into full sheets with a PDF button. Wine and gold only. */
+:root{
+  --bg:#46111f; --bg-2:#5a1628; --panel:rgba(255,236,214,.045); --panel-2:rgba(255,236,214,.08);
+  --ink:#f7ede3; --muted:#d6bcb0; --line:rgba(217,170,94,.26);
+  --gold:#d9aa5e; --gold-2:#f0dcb4; --rose:#d39a95; --on-gold:#3b0c17;
+  --display:"Cormorant Garamond","El Messiri",Georgia,serif;
+  --body:"Tajawal",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);background-image:linear-gradient(135deg,var(--bg-2) 0%,var(--bg) 45%,#3d0e1a 70%,var(--bg-2) 100%);background-attachment:fixed;color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.75}
+html[data-lang="ar"] .en,html[data-lang="en"] .ar{display:none!important}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance;font-weight:600}
+p{margin:0}
+a{color:var(--gold)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.label{font:700 12px var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+em.g{font-style:italic;color:var(--gold);font-weight:500}
+
+/* bar */
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:18px;flex-wrap:wrap}
+.mark{font:700 20px var(--display)}
+.mark i{font-style:normal;color:var(--gold)}
+.navr{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pill{font:600 14px var(--body);background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:7px 15px;cursor:pointer;text-decoration:none}
+.pill:hover{border-color:var(--gold)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr);gap:24px 48px;align-items:center;padding-block:44px 52px}
+.hero h1{font-size:clamp(42px,7vw,86px);line-height:1.1}
+.hero .lead{font-size:clamp(17px,2.1vw,20px);color:var(--muted);max-width:58ch;margin-top:18px}
+.rule{display:block;width:56px;height:2px;background:var(--gold);margin-top:22px}
+.fields{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:20px;font:700 13px var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-2)}
+.fields span+span::before{content:"·";margin-inline-end:18px;color:var(--gold)}
+.venn{width:100%;max-width:320px;height:auto;justify-self:center}
+.venn circle{fill:none;stroke:var(--gold);stroke-width:1.5}
+.venn text{fill:var(--ink);font:700 12px var(--body);letter-spacing:.2em}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{font:700 15px var(--body);border-radius:10px;padding:12px 20px;cursor:pointer;text-decoration:none;border:0;display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:var(--gold);color:var(--on-gold)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--gold)}
+.btn.sm{padding:8px 14px;font-size:14px}
+
+/* sections */
+section{padding-block:68px;border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:12px;margin-bottom:34px;max-width:760px}
+.sec-head h2{font-size:clamp(30px,4.6vw,50px)}
+.sec-head p{color:var(--muted)}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:start}
+.about .txt{display:grid;gap:14px;color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line)}
+.stat{padding:18px 4px;border-bottom:1px solid var(--line);display:grid;gap:2px}
+.stat:nth-child(odd){border-inline-end:1px solid var(--line);padding-inline-end:16px}
+.stat:nth-child(even){padding-inline-start:16px}
+.stat b{font:600 clamp(36px,4.6vw,52px) var(--display);color:var(--gold);line-height:1.05;font-variant-numeric:tabular-nums}
+.stat span{font-size:14px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:40px;counter-reset:st}
+.step{border-top:2px solid var(--gold);padding-top:12px;display:grid;gap:4px;counter-increment:st}
+.step::before{content:"0" counter(st);font:600 22px var(--display);color:var(--gold)}
+.step b{font:700 16px var(--body)}
+.step span{font-size:14px;color:var(--muted)}
+
+/* fields */
+.tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.track{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:12px;align-content:start;min-width:0}
+.track .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.track h3{font-size:clamp(24px,3vw,30px)}
+.track .lvl{font:700 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2);white-space:nowrap}
+.track p{color:var(--muted);font-size:15.5px}
+.skills{display:flex;flex-wrap:wrap;gap:6px}
+.skills span{font-size:13.5px;padding:4px 11px;border-radius:999px;border:1px solid var(--line);color:var(--ink)}
+
+/* work */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filters button{font:600 14px var(--body);background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 16px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ccard{all:unset;box-sizing:border-box;cursor:pointer;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start;min-width:0;transition:border-color .2s ease,transform .2s ease}
+.ccard:hover{border-color:var(--gold)}
+.ccard:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.ccard .field{font:700 11.5px var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.ccard .n{font:600 clamp(40px,5vw,54px) var(--display);color:var(--gold-2);line-height:1;margin-top:8px;font-variant-numeric:tabular-nums}
+.ccard .cap{font-size:13.5px;color:var(--muted)}
+.ccard .t{font:600 clamp(20px,2.2vw,23px) var(--display);line-height:1.3;margin-top:6px}
+.ccard .go{font:700 14px var(--body);color:var(--gold);margin-top:8px}
+.more{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--muted);font-size:15px}
+
+/* sheet */
+dialog.sheet{width:min(1000px,calc(100% - 24px));max-height:92vh;max-height:92dvh;padding:0;border:1px solid var(--line);border-radius:20px;background:var(--bg);color:var(--ink);overflow:auto}
+dialog.sheet::backdrop{background:rgba(30,6,12,.78);backdrop-filter:blur(4px)}
+.sheet-bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;background:color-mix(in srgb,var(--bg) 94%,transparent);border-bottom:1px solid var(--line)}
+.sheet-act{display:flex;gap:8px;align-items:center}
+.xbtn{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:10px;width:38px;height:38px;cursor:pointer;font-size:16px}
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start;padding:26px 22px 30px}
+.case .txt{display:grid;gap:14px;min-width:0}
+.case h3{font-size:clamp(26px,3.4vw,36px)}
+.case .who{font-size:14px;color:var(--muted)}
+.case dl{margin:0;display:grid;gap:14px}
+.case dt{font:700 13px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.case dd{margin:4px 0 0;font-size:15.5px}
+.case ul{margin:0;padding-inline-start:18px;display:grid;gap:4px}
+.ticks{list-style:none;padding:0!important}
+.ticks li{display:flex;gap:8px}
+.ticks li::before{content:"✓";color:var(--gold);font-weight:700}
+.exhibit{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:14px;min-width:0}
+.cap2{font:700 11px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.quote{font:600 clamp(22px,2.6vw,28px) var(--display);line-height:1.35}
+.weeks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.wk{border-radius:12px;padding:12px;background:var(--panel-2);display:grid;gap:6px;align-content:start;border-top:3px solid var(--gold)}
+.wk span{font:700 11px var(--body);letter-spacing:.12em;color:var(--muted)}
+.wk b{font:700 14px var(--body);line-height:1.35}
+.pd{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px 10px;align-items:center;font-size:14px}
+.pd .h{font:700 11px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.pd .p{background:var(--panel-2);border-radius:10px;padding:9px 12px}
+.pd .d{border:1px solid var(--gold);border-radius:10px;padding:9px 12px}
+.pd .a{color:var(--gold)}
+html[dir="ltr"] .pd .a{transform:scaleX(-1)}
+.flow{display:grid;gap:8px;counter-reset:f}
+.flow div{display:flex;gap:12px;align-items:baseline;background:var(--panel-2);border-radius:10px;padding:10px 14px;font-size:14.5px;counter-increment:f}
+.flow div::before{content:counter(f);font:600 20px var(--display);color:var(--gold);min-width:16px}
+.grid12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px;height:96px;padding:0 10px;border-inline:2px dashed var(--line)}
+.grid12 div{background:rgba(217,170,94,.22);border-radius:3px}
+.spec{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.spec div{background:var(--panel-2);border-radius:10px;padding:10px;display:grid}
+.spec b{font:600 22px var(--display);color:var(--gold)}
+.spec span{font-size:12.5px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:13.5px;padding:6px 12px;border-radius:8px;background:var(--panel-2)}
+.roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.role{border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;gap:4px}
+.role b{font:700 15px var(--body);color:var(--gold-2)}
+.role span{font-size:13.5px;color:var(--muted)}
+.quad{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.quad div{background:var(--panel-2);border-radius:12px;padding:12px;display:grid;gap:2px}
+.quad b{font:600 20px var(--display);color:var(--gold)}
+.quad span{font-size:13.5px;color:var(--muted)}
+
+/* credentials */
+.cred{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:32px;align-items:start}
+.degree{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:10px}
+.degree .gpa{font:600 70px var(--display);color:var(--gold);line-height:1;font-variant-numeric:tabular-nums}
+.degree p{color:var(--muted);font-size:15px}
+.book{border-top:1px solid var(--line);padding-top:16px;margin-top:6px;display:grid;gap:6px}
+.book b{font:600 22px var(--display)}
+.certs{display:grid;border-top:1px solid var(--line)}
+.cert{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:12px 2px;border-bottom:1px solid var(--line);align-items:baseline}
+.cert b{font:700 15px var(--body)}
+.cert span{display:block;font-size:13px;color:var(--muted)}
+.cert em{font-style:normal;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.cert.now em{color:var(--gold)}
+
+/* contact */
+.contact{display:grid;gap:20px}
+.contact h2{font-size:clamp(34px,6vw,64px)}
+.line{font:600 17px var(--body);user-select:all;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 16px;overflow-wrap:anywhere}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+footer{padding-block:24px 40px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.note{font-size:13px;color:var(--muted)}
+
+#printArea{display:none}
+@media (max-width:900px){
+  .hero,.about,.cred,.case{grid-template-columns:1fr}
+  .venn{max-width:240px;justify-self:start}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:18px}
+}
+@media (max-width:600px){
+  .cards,.tracks{grid-template-columns:1fr}
+  .weeks,.spec{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .roles,.quad{grid-template-columns:1fr}
+  dialog.sheet{width:calc(100% - 12px);max-height:94dvh}
+  .pd{grid-template-columns:1fr}
+  .pd .a,.pd .h:nth-child(2){display:none}
+}
+@media print{
+  @page{size:A4;margin:0}
+  html,body{background:#46111f!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body.printing > *:not(#printArea){display:none!important}
+  body.printing #printArea{display:block}
+  #printArea .phead{margin:12mm 12mm 0;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding-bottom:12px;border-bottom:2px solid var(--gold)}
+  #printArea .phead b{font:600 28px var(--display)}
+  #printArea .phead span{font-size:11px;color:var(--muted);text-align:end;line-height:1.6}
+  #printArea .case{grid-template-columns:1fr!important;gap:16px;padding:8mm 12mm 10mm}
+  #printArea .case + .case{break-before:page}
+  #printArea .exhibit{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){.ccard{transition:none}}
+</style>
+</head><body>
+
+<header class="wrap bar">
+  <span class="mark">Nour Abusultan<i>.</i></span>
+  <nav class="navr">
+    <a class="pill" href="https://nour-abusultan.github.io/marketing-portfolio/" target="_blank" rel="noopener"><span class="ar">بورتفوليو التسويق</span><span class="en">Marketing portfolio</span></a>
+    <a class="pill" href="https://www.linkedin.com/in/nourabusultan" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="pill" href="https://wa.me/970595288728" target="_blank" rel="noopener"><span class="ar">واتساب</span><span class="en">WhatsApp</span></a>
+    <button class="pill" id="langBtn" type="button"><span class="ar">English</span><span class="en">العربية</span></button>
+  </nav>
+</header>
+
+<main>
+<div class="wrap hero">
+  <div>
+    <span class="label"><span class="ar">نور أبو سلطان · غزة، فلسطين · عن بُعد</span><span class="en">Nour Abusultan · Gaza, Palestine · Remote</span></span>
+    <h1 style="margin-top:16px">
+      <span class="ar">تسويق يبدأ<br><em class="g">من داخل المنتج.</em></span>
+      <span class="en">Marketing that starts<br><em class="g">inside the product.</em></span>
+    </h1>
+    <span class="rule" aria-hidden="true"></span>
+    <p class="lead"><span class="ar">بشتغل بالتسويق الرقمي، وبتدرّب على تصميم UX/UI، وبدرس الحوسبة المتنقلة. هاد المكان بيجمع شغلي بالمجالات الثلاثة.</span><span class="en">I work in digital marketing, train in UX/UI design, and study Mobile Computing. This page brings my work across all three together.</span></p>
+    <div class="fields"><span>Digital Marketing</span><span>UX/UI Design</span><span>Mobile Computing</span></div>
+    <div class="cta">
+      <a class="btn primary" href="#work"><span class="ar">اطّلع على الشغل</span><span class="en">See the work</span></a>
+      <a class="btn ghost" href="#contact"><span class="ar">تواصل معي</span><span class="en">Get in touch</span></a>
+    </div>
+  </div>
+  <svg class="venn" viewBox="0 0 300 260" role="img" aria-label="Code, design, audience">
+    <circle cx="150" cy="100" r="62"/><circle cx="120" cy="152" r="62"/><circle cx="180" cy="152" r="62"/>
+    <circle cx="150" cy="135" r="5" style="fill:var(--gold);stroke:none"/>
+    <text x="150" y="24" text-anchor="middle">CODE</text>
+    <text x="44" y="248" text-anchor="middle">DESIGN</text>
+    <text x="258" y="248" text-anchor="middle">AUDIENCE</text>
+  </svg>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">01 — <span class="ar">نبذة</span><span class="en">About</span></span>
+      <h2><span class="ar">بفهم الجمهور، <em class="g">وبفهم كيف المنتج بينبني.</em></span><span class="en">I understand the audience, <em class="g">and how the product gets built.</em></span></h2>
+    </div>
+    <div class="about">
+      <div class="txt">
+        <p><span class="ar">اشتغلت مديرة تسويق رقمي لوكالة برمجيات بتستهدف الخليج، وأدرت محتوى عملاء بالرعاية الصحية والخدمات المنزلية والتقنية المالية. بنيت خطط محتوى، وهويات براند، وحملات إطلاق.</span><span class="en">I worked as Digital Marketing Manager for a Gulf-focused software agency and managed client content in healthcare, home services and fintech: content plans, brand identities and launch campaigns.</span></p>
+        <p><span class="ar">بنفس الوقت بدرس الحوسبة المتنقلة بسنة التخرج، وبتدرّب على تصميم UX/UI، وبنيت منصات صغيرة شغّالة على Firebase. وبكتب كمان: إلي نصوص منشورة بأنطولوجيا دولية.</span><span class="en">At the same time I'm a final-year Mobile Computing student, training in UX/UI design, and I've built small working platforms on Firebase. I also write: my pieces are published in an international anthology.</span></p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>4</b><span><span class="ar">براندات بالخليج اشتغلت معها</span><span class="en">Gulf brands worked with</span></span></div>
+        <div class="stat"><b>89%</b><span><span class="ar">معدل تراكمي، حوسبة متنقلة</span><span class="en">GPA, Mobile Computing</span></span></div>
+        <div class="stat"><b>11+</b><span><span class="ar">شهادة وتدريب</span><span class="en">certificates &amp; trainings</span></span></div>
+        <div class="stat"><b>2</b><span><span class="ar">منصات بنيتها بنفسي</span><span class="en">platforms I built myself</span></span></div>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><b><span class="ar">أفهم</span><span class="en">Understand</span></b><span><span class="ar">المشكلة الحقيقية قبل الأداة</span><span class="en">The real problem before the tool</span></span></div>
+      <div class="step"><b><span class="ar">أبحث</span><span class="en">Research</span></b><span><span class="ar">الجمهور وشو بيدوّر عليه</span><span class="en">The audience and what it searches for</span></span></div>
+      <div class="step"><b><span class="ar">أصمّم</span><span class="en">Design</span></b><span><span class="ar">الخطة أو الشاشة أو الرسالة</span><span class="en">The plan, the screen or the message</span></span></div>
+      <div class="step"><b><span class="ar">أبني</span><span class="en">Build</span></b><span><span class="ar">المحتوى أو المنصة</span><span class="en">The content or the platform</span></span></div>
+      <div class="step"><b><span class="ar">أقيس</span><span class="en">Measure</span></b><span><span class="ar">وأعدّل حسب النتيجة</span><span class="en">And adjust from the results</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="fields">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">02 — <span class="ar">المجالات</span><span class="en">Fields</span></span>
+      <h2><span class="ar">ثلاث مجالات، <em class="g">عقلية وحدة.</em></span><span class="en">Three fields, <em class="g">one way of thinking.</em></span></h2>
+    </div>
+    <div class="tracks">
+      <article class="track">
+        <div class="top"><h3><span class="ar">التسويق الرقمي</span><span class="en">Digital Marketing</span></h3><span class="lvl"><span class="ar">خبرة عملية</span><span class="en">Professional</span></span></div>
+        <p><span class="ar">استراتيجيات وخطط محتوى وحملات لعملاء بالسعودية والإمارات.</span><span class="en">Strategies, content plans and campaigns for clients in Saudi Arabia and the UAE.</span></p>
+        <div class="skills"><span>Content Strategy</span><span>Content Calendars</span><span>Brand Identity</span><span>B2B LinkedIn</span><span>TikTok SEO</span><span>Video Scripts</span><span>Paid Ads</span><span>Analytics</span></div>
+      </article>
+      <article class="track">
+        <div class="top"><h3><span class="ar">تصميم UX/UI</span><span class="en">UX/UI Design</span></h3><span class="lvl"><span class="ar">تدريب</span><span class="en">In training</span></span></div>
+        <p><span class="ar">تدريب مع C2C: مشاريع فريق على Figma، وتحليل مشاكل المستخدم قبل التصميم.</span><span class="en">Training with C2C: team projects in Figma and user problem analysis before design.</span></p>
+        <div class="skills"><span>Figma</span><span>Grid Systems</span><span>User Research</span><span>Problem Analysis</span><span>Web Page Design</span></div>
+      </article>
+      <article class="track">
+        <div class="top"><h3><span class="ar">الحوسبة المتنقلة</span><span class="en">Mobile Computing</span></h3><span class="lvl"><span class="ar">تخصص · سنة التخرج</span><span class="en">Major · final year</span></span></div>
+        <p><span class="ar">تطوير تطبيقات، ذكاء اصطناعي، قواعد بيانات، وحوسبة سحابية. بستخدمها ببناء منصات حقيقية.</span><span class="en">App development, AI, databases and cloud computing, applied to real platforms.</span></p>
+        <div class="skills"><span>Flutter</span><span>Firebase</span><span>HTML/CSS</span><span>GitHub Pages</span><span>Python</span><span>Databases</span><span>AI Tools</span></div>
+      </article>
+      <article class="track">
+        <div class="top"><h3><span class="ar">الكتابة</span><span class="en">Writing</span></h3><span class="lvl"><span class="ar">منشورة دوليًا</span><span class="en">Published</span></span></div>
+        <p><span class="ar">كتابة محتوى بالعربي والإنجليزي، ونصوص أدبية منشورة في كندا.</span><span class="en">Arabic and English copywriting, and literary pieces published in Canada.</span></p>
+        <div class="skills"><span>Arabic Copywriting</span><span>English Copywriting</span><span>Storytelling</span><span>Essays &amp; Poetry</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">03 — <span class="ar">الشغل</span><span class="en">Work</span></span>
+      <h2><span class="ar">مشاريع مختارة <em class="g">من كل مجال.</em></span><span class="en">Selected work <em class="g">from every field.</em></span></h2>
+      <p><span class="ar">اضغط على أي بطاقة لتشوف التفاصيل، وبتقدر تنزّلها PDF.</span><span class="en">Open any card for the full story, and download it as a PDF.</span></p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter">
+      <button type="button" data-f="all" aria-pressed="true"><span class="ar">الكل</span><span class="en">All</span></button>
+      <button type="button" data-f="mkt" aria-pressed="false"><span class="ar">تسويق</span><span class="en">Marketing</span></button>
+      <button type="button" data-f="ux" aria-pressed="false">UX/UI</button>
+      <button type="button" data-f="tech" aria-pressed="false"><span class="ar">تقنية</span><span class="en">Tech</span></button>
+    </div>
+    <div class="cards">
+      <button class="ccard" type="button" data-open="c1" data-k="mkt"><span class="field"><span class="ar">تسويق · استراتيجية</span><span class="en">Marketing · Strategy</span></span><span class="n">60</span><span class="cap"><span class="ar">يوم محتوى على 6 منصات</span><span class="en">days of content, 6 platforms</span></span><span class="t"><span class="ar">بناء تسويق وكالة برمجيات من الصفر</span><span class="en">Building a software agency's marketing from zero</span></span><span class="go"><span class="ar">اعرض ←</span><span class="en">View →</span></span></button>
+      <button class="ccard" type="button" data-open="c2" data-k="mkt"><span class="field"><span class="ar">تسويق · تحليل</span><span class="en">Marketing · Analytics</span></span><span class="n">6</span><span class="cap"><span class="ar">قرارات تصحيح من قراءة البيانات</span><span class="en">fixes drawn from the data</span></span><span class="t"><span class="ar">تشخيص حساب تيك توك ما بيجيب نتيجة</span><span class="en">Diagnosing a TikTok account that wasn't working</span></span><span class="go"><span class="ar">اعرض ←</span><span class="en">View →</span></span></button>
+      <button class="ccard" type="button" data-open="c3" data-k="ux"><span class="field"><span class="ar">UX/UI · تصميم</span><span class="en">UX/UI · Design</span></span><span class="n">12</span><span class="cap"><span class="ar">عمود بنظام شبكة موحد للفريق</span><span class="en">column shared grid system</span></span><span class="t"><span class="ar">إعادة تصميم متجر بخور وعطور</span><span class="en">Redesigning an incense &amp; perfume store</span></span><span class="go"><span class="ar">اعرض ←</span><span class="en">View →</span></span></button>
+      <button class="ccard" type="button" data-open="c4" data-k="ux"><span class="field"><span class="ar">UX/UI · بحث</span><span class="en">UX/UI · Research</span></span><span class="n">7</span><span class="cap"><span class="ar">محاور مشاكل حلّلناها</span><span class="en">problem areas analysed</span></span><span class="t"><span class="ar">تحليل مساحات العمل المشتركة في غزة</span><span class="en">Coworking spaces in Gaza: problem analysis</span></span><span class="go"><span class="ar">اعرض ←</span><span class="en">View →</span></span></button>
+      <button class="ccard" type="button" data-open="c5" data-k="tech"><span class="field"><span class="ar">تقنية · منصة</span><span class="en">Tech · Platform</span></span><span class="n">200</span><span class="cap"><span class="ar">طالبة تقريبًا على المنصة</span><span class="en">students, approximately</span></span><span class="t"><span class="ar">منصة إدارة لأكاديمية تحفيظ</span><span class="en">A management platform for a Quran academy</span></span><span class="go"><span class="ar">اعرض ←</span><span class="en">View →</span></span></button>
+      <button class="ccard" type="button" data-open="c6" data-k="tech"><span class="field"><span class="ar">تقنية · منتج شخصي</span><span class="en">Tech · Personal product</span></span><span class="n">4</span><span class="cap"><span class="ar">أقسام بتنظم يومي كله</span><span class="en">sections that organise my day</span></span><span class="t"><span class="ar">«دفتر نور»: مخطط شخصي بيتزامن بين الأجهزة</span><span class="en">“Daftar Nour”: a planner that syncs across devices</span></span><span class="go"><span class="ar">اعرض ←</span><span class="en">View →</span></span></button>
+    </div>
+    <div class="more">
+      <span><span class="ar">بدك تشوف كل حالات التسويق بالتفصيل؟</span><span class="en">Want every marketing case in detail?</span></span>
+      <a class="btn ghost sm" href="https://nour-abusultan.github.io/marketing-portfolio/" target="_blank" rel="noopener"><span class="ar">بورتفوليو التسويق</span><span class="en">Marketing portfolio</span></a>
+      <button class="btn ghost sm" type="button" data-pdf="all"><span class="ar">تنزيل كل المشاريع PDF</span><span class="en">Download all (PDF)</span></button>
+    </div>
+
+    <!-- C1 -->
+    <dialog class="sheet" id="c1"><div class="sheet-bar"><span class="label"><span class="ar">تسويق · 1 من 6</span><span class="en">Marketing · 1 of 6</span></span><div class="sheet-act"><button class="btn primary sm" type="button" data-pdf="c1"><span class="ar">تنزيل PDF</span><span class="en">Download PDF</span></button><button class="xbtn" type="button" data-close aria-label="Close">✕</button></div></div>
+      <div class="case">
+        <div class="txt">
+          <span class="label"><span class="ar">استراتيجية · براند · B2B</span><span class="en">Strategy · Brand · B2B</span></span>
+          <h3><span class="ar">بناء تسويق وكالة برمجيات من الصفر</span><span class="en">Building a software agency's marketing from zero</span></h3>
+          <span class="who">GDimensions · <span class="ar">مديرة تسويق رقمي · الخليج</span><span class="en">Digital Marketing Manager · Gulf</span></span>
+          <dl>
+            <div><dt><span class="ar">التحدي</span><span class="en">The challenge</span></dt><dd><span class="ar">وكالة تعتمد الذكاء الاصطناعي تستهدف الخليج، بدون هوية تسويقية ولا خطة محتوى.</span><span class="en">An AI-first agency targeting the Gulf with no marketing identity or content plan.</span></dd></div>
+            <div><dt><span class="ar">اللي عملته</span><span class="en">What I did</span></dt><dd><ul>
+              <li><span class="ar">بنيت هوية البراند وشعار «Inspire Your Technology».</span><span class="en">Built the brand identity and the “Inspire Your Technology” tagline.</span></li>
+              <li><span class="ar">خطة محتوى 60 يومًا على 6 منصات، بقاعدة موضوع واحد يتشكّل لكل منصة.</span><span class="en">A 60-day plan across 6 platforms: one topic shaped for each platform.</span></li>
+              <li><span class="ar">استراتيجية B2B على لينكدإن لمدراء التقنية والمؤسسين.</span><span class="en">A LinkedIn B2B strategy for CTOs and founders.</span></li>
+            </ul></dd></div>
+            <div><dt><span class="ar">المخرجات</span><span class="en">Deliverables</span></dt><dd><ul class="ticks">
+              <li><span class="ar">دليل هوية البراند</span><span class="en">Brand identity guide</span></li>
+              <li><span class="ar">خطط محتوى أسبوعية وشهرية</span><span class="en">Weekly and monthly content plans</span></li>
+              <li><span class="ar">كابشنز حسب المنصة وبريفات تصميم</span><span class="en">Platform captions and design briefs</span></li>
+            </ul></dd></div>
+          </dl>
+        </div>
+        <div class="exhibit">
+          <span class="cap2"><span class="ar">نموذج: هيكل خطة الشهر الثاني</span><span class="en">Sample: Month 2 structure</span></span>
+          <p class="quote"><span class="ar">«قبل ما نبني، <em class="g">بنفهم</em>.»</span><span class="en">“Before we build, we <em class="g">understand</em>.”</span></p>
+          <div class="weeks">
+            <div class="wk"><span><span class="ar">أسبوع 1</span><span class="en">WEEK 1</span></span><b><span class="ar">الفلسفة</span><span class="en">Philosophy</span></b></div>
+            <div class="wk"><span><span class="ar">أسبوع 2</span><span class="en">WEEK 2</span></span><b><span class="ar">الحلول الرقمية</span><span class="en">Digital solutions</span></b></div>
+            <div class="wk"><span><span class="ar">أسبوع 3</span><span class="en">WEEK 3</span></span><b><span class="ar">حلول الذكاء الاصطناعي</span><span class="en">AI solutions</span></b></div>
+            <div class="wk"><span><span class="ar">أسبوع 4</span><span class="en">WEEK 4</span></span><b><span class="ar">إثبات + دعوة</span><span class="en">Proof + CTA</span></b></div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- C2 -->
+    <dialog class="sheet" id="c2"><div class="sheet-bar"><span class="label"><span class="ar">تسويق · 2 من 6</span><span class="en">Marketing · 2 of 6</span></span><div class="sheet-act"><button class="btn primary sm" type="button" data-pdf="c2"><span class="ar">تنزيل PDF</span><span class="en">Download PDF</span></button><button class="xbtn" type="button" data-close aria-label="Close">✕</button></div></div>
+      <div class="case">
+        <div class="txt">
+          <span class="label"><span class="ar">تحليل · تشخيص</span><span class="en">Analytics · Diagnosis</span></span>
+          <h3><span class="ar">تشخيص حساب تيك توك ما بيجيب نتيجة</span><span class="en">Diagnosing a TikTok account that wasn't working</span></h3>
+          <span class="who"><span class="ar">شركة تقنية تستهدف الإمارات</span><span class="en">Tech company targeting the UAE</span></span>
+          <dl>
+            <div><dt><span class="ar">التحدي</span><span class="en">The challenge</span></dt><dd><span class="ar">الحساب بينشر بس ما بيوصل للجمهور الإماراتي وما بيجيب تفاعل.</span><span class="en">The account kept posting but wasn't reaching or engaging the UAE audience.</span></dd></div>
+            <div><dt><span class="ar">اللي عملته</span><span class="en">What I did</span></dt><dd><ul>
+              <li><span class="ar">قرأت بيانات المشاهدين ومدة المشاهدة ومصادر الزيارات.</span><span class="en">Read viewer location, watch time and traffic sources.</span></li>
+              <li><span class="ar">بحثت الجمهور الإماراتي وقسّمته لـ 6 شرائح.</span><span class="en">Researched the UAE audience into 6 segments.</span></li>
+              <li><span class="ar">حوّلت كل مشكلة لقرار وقاعدة إنتاج ثابتة.</span><span class="en">Turned each problem into a decision and a fixed production rule.</span></li>
+            </ul></dd></div>
+            <div><dt><span class="ar">المخرجات</span><span class="en">Deliverables</span></dt><dd><ul class="ticks">
+              <li><span class="ar">تقرير تحليل أداء</span><span class="en">Performance analysis report</span></li>
+              <li><span class="ar">بحث جمهور بـ 6 شرائح</span><span class="en">6-segment audience research</span></li>
+              <li><span class="ar">خطة تصحيح وسكريبتات فيديو</span><span class="en">Recovery plan and video scripts</span></li>
+            </ul></dd></div>
+          </dl>
+        </div>
+        <div class="exhibit">
+          <span class="cap2"><span class="ar">نموذج: مشكلة ← قرار</span><span class="en">Sample: problem → decision</span></span>
+          <div class="pd">
+            <span class="h"><span class="ar">المشكلة</span><span class="en">Problem</span></span><span class="h"></span><span class="h"><span class="ar">القرار</span><span class="en">Decision</span></span>
+            <span class="p"><span class="ar">أغلب المشاهدات من خارج الإمارات</span><span class="en">Most views from outside the UAE</span></span><span class="a">←</span><span class="d"><span class="ar">ضبط منطقة الحساب والنشر على الإمارات</span><span class="en">Set account region and posting to the UAE</span></span>
+            <span class="p"><span class="ar">المشاهد بيقرر بأول ثانيتين</span><span class="en">Viewers decide in two seconds</span></span><span class="a">←</span><span class="d"><span class="ar">حركة حقيقية بأول ثانيتين</span><span class="en">Real motion in the first two seconds</span></span>
+            <span class="p"><span class="ar">مواضيع مشتتة بين 5 مجالات</span><span class="en">Topics scattered over 5 fields</span></span><span class="a">←</span><span class="d"><span class="ar">التركيز على المنتجات الفعلية</span><span class="en">Focus on the actual products</span></span>
+            <span class="p"><span class="ar">لغة الشركة بدل لغة العميل</span><span class="en">Company talk, not customer talk</span></span><span class="a">←</span><span class="d"><span class="ar">أول جملة تخاطب صاحب المشروع</span><span class="en">First line speaks to the owner</span></span>
+            <span class="p"><span class="ar">4 ستايلات بصرية مختلفة</span><span class="en">4 different visual styles</span></span><span class="a">←</span><span class="d"><span class="ar">هوية بصرية وحدة ثابتة</span><span class="en">One fixed visual identity</span></span>
+            <span class="p"><span class="ar">فجوات بالنشر</span><span class="en">Gaps in posting</span></span><span class="a">←</span><span class="d"><span class="ar">نشر يومي منتظم</span><span class="en">Steady daily posting</span></span>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- C3 -->
+    <dialog class="sheet" id="c3"><div class="sheet-bar"><span class="label"><span class="ar">UX/UI · 3 من 6</span><span class="en">UX/UI · 3 of 6</span></span><div class="sheet-act"><button class="btn primary sm" type="button" data-pdf="c3"><span class="ar">تنزيل PDF</span><span class="en">Download PDF</span></button><button class="xbtn" type="button" data-close aria-label="Close">✕</button></div></div>
+      <div class="case">
+        <div class="txt">
+          <span class="label"><span class="ar">تصميم واجهات · مشروع فريق</span><span class="en">UI design · Team project</span></span>
+          <h3><span class="ar">إعادة تصميم متجر بخور وعطور</span><span class="en">Redesigning an incense &amp; perfume store</span></h3>
+          <span class="who"><span class="ar">تدريب UX/UI مع C2C · Figma</span><span class="en">UX/UI training with C2C · Figma</span></span>
+          <dl>
+            <div><dt><span class="ar">التحدي</span><span class="en">The challenge</span></dt><dd><span class="ar">متجر إلكتروني بحاجة لتجربة تصفح أوضح، وفريق مصممين لازم يطلع بتصميم موحد.</span><span class="en">An online store needing clearer browsing, and a design team that had to ship one consistent design.</span></dd></div>
+            <div><dt><span class="ar">اللي عملته</span><span class="en">What I did</span></dt><dd><ul>
+              <li><span class="ar">صممت صفحات التصنيفات.</span><span class="en">Designed the category pages.</span></li>
+              <li><span class="ar">اشتغلت على نظام شبكة وخط موحد مع الفريق.</span><span class="en">Worked on a shared grid and type system with the team.</span></li>
+              <li><span class="ar">كتبت نصوص محايدة بتخاطب كل الزوار.</span><span class="en">Wrote neutral copy that speaks to every visitor.</span></li>
+            </ul></dd></div>
+            <div><dt><span class="ar">المخرجات</span><span class="en">Deliverables</span></dt><dd><ul class="ticks">
+              <li><span class="ar">تصاميم صفحات التصنيفات على Figma</span><span class="en">Category page designs in Figma</span></li>
+              <li><span class="ar">مساهمة بنظام التصميم المشترك</span><span class="en">Contribution to the shared design system</span></li>
+            </ul></dd></div>
+          </dl>
+        </div>
+        <div class="exhibit">
+          <span class="cap2"><span class="ar">نموذج: نظام الشبكة</span><span class="en">Sample: the grid</span></span>
+          <div class="grid12"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          <div class="spec">
+            <div><b>1440</b><span><span class="ar">عرض الديسكتوب</span><span class="en">desktop width</span></span></div>
+            <div><b>12</b><span><span class="ar">عمود</span><span class="en">columns</span></span></div>
+            <div><b>100</b><span><span class="ar">هامش (px)</span><span class="en">margin (px)</span></span></div>
+            <div><b>24</b><span><span class="ar">مسافة (px)</span><span class="en">gutter (px)</span></span></div>
+          </div>
+          <span class="cap2"><span class="ar">الخط المعتمد: Inter</span><span class="en">UI font: Inter</span></span>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- C4 -->
+    <dialog class="sheet" id="c4"><div class="sheet-bar"><span class="label"><span class="ar">UX/UI · 4 من 6</span><span class="en">UX/UI · 4 of 6</span></span><div class="sheet-act"><button class="btn primary sm" type="button" data-pdf="c4"><span class="ar">تنزيل PDF</span><span class="en">Download PDF</span></button><button class="xbtn" type="button" data-close aria-label="Close">✕</button></div></div>
+      <div class="case">
+        <div class="txt">
+          <span class="label"><span class="ar">بحث مستخدم · تحليل</span><span class="en">User research · Analysis</span></span>
+          <h3><span class="ar">تحليل مساحات العمل المشتركة في غزة</span><span class="en">Coworking spaces in Gaza: problem analysis</span></h3>
+          <span class="who"><span class="ar">تدريب UX/UI مع C2C · مشروع فريق</span><span class="en">UX/UI training with C2C · Team project</span></span>
+          <dl>
+            <div><dt><span class="ar">التحدي</span><span class="en">The challenge</span></dt><dd><span class="ar">فهم مشاكل المشتركين والإدارة بمساحات العمل قبل ما نصمم تطبيق للمشتركين.</span><span class="en">Understand members' and admins' problems before designing a member app.</span></dd></div>
+            <div><dt><span class="ar">اللي عملته</span><span class="en">What I did</span></dt><dd><ul>
+              <li><span class="ar">حللنا المشاكل على 7 محاور.</span><span class="en">Analysed the problems across 7 areas.</span></li>
+              <li><span class="ar">حللنا شاشات نظام إدارة قائم.</span><span class="en">Analysed an existing admin system's screens.</span></li>
+              <li><span class="ar">حددنا إن التطبيق للمشترك فقط.</span><span class="en">Scoped the app to members only.</span></li>
+            </ul></dd></div>
+            <div><dt><span class="ar">المخرجات</span><span class="en">Deliverables</span></dt><dd><ul class="ticks">
+              <li><span class="ar">تحليل مشاكل موثق</span><span class="en">Documented problem analysis</span></li>
+              <li><span class="ar">تحليل شاشات نظام الإدارة</span><span class="en">Admin screen analysis</span></li>
+            </ul></dd></div>
+          </dl>
+        </div>
+        <div class="exhibit">
+          <span class="cap2"><span class="ar">نموذج: محاور المشاكل</span><span class="en">Sample: problem areas</span></span>
+          <div class="tags">
+            <span><span class="ar">الاشتراكات</span><span class="en">Subscriptions</span></span>
+            <span><span class="ar">الفوترة بالوقت</span><span class="en">Timed billing</span></span>
+            <span><span class="ar">قاعات الاجتماعات</span><span class="en">Meeting rooms</span></span>
+            <span><span class="ar">البوفيه</span><span class="en">Buffet</span></span>
+            <span><span class="ar">الإنترنت</span><span class="en">Internet</span></span>
+            <span><span class="ar">شراكات الشركات</span><span class="en">Company partnerships</span></span>
+            <span><span class="ar">حسابات بموافقة الإدارة</span><span class="en">Admin-approved accounts</span></span>
+          </div>
+          <span class="cap2"><span class="ar">المسار</span><span class="en">The path</span></span>
+          <div class="flow">
+            <div><span class="ar">نحلل المشاكل</span><span class="en">Analyse the problems</span></div>
+            <div><span class="ar">نحلل النظام القائم</span><span class="en">Analyse the existing system</span></div>
+            <div><span class="ar">نصمم تطبيق المشترك</span><span class="en">Design the member app</span></div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- C5 -->
+    <dialog class="sheet" id="c5"><div class="sheet-bar"><span class="label"><span class="ar">تقنية · 5 من 6</span><span class="en">Tech · 5 of 6</span></span><div class="sheet-act"><button class="btn primary sm" type="button" data-pdf="c5"><span class="ar">تنزيل PDF</span><span class="en">Download PDF</span></button><button class="xbtn" type="button" data-close aria-label="Close">✕</button></div></div>
+      <div class="case">
+        <div class="txt">
+          <span class="label"><span class="ar">منصة ويب · Firebase</span><span class="en">Web platform · Firebase</span></span>
+          <h3><span class="ar">منصة إدارة لأكاديمية تحفيظ</span><span class="en">A management platform for a Quran academy</span></h3>
+          <span class="who"><span class="ar">أكاديمية تحفيظ للبنات · حوالي 200 طالبة</span><span class="en">Girls' Quran academy · about 200 students</span></span>
+          <dl>
+            <div><dt><span class="ar">التحدي</span><span class="en">The challenge</span></dt><dd><span class="ar">الإدارة بتتابع الاختبارات والحضور والتقارير يدويًا لعشرات الحلقات.</span><span class="en">Admins tracked exams, attendance and reports by hand across many circles.</span></dd></div>
+            <div><dt><span class="ar">اللي عملته</span><span class="en">What I did</span></dt><dd><ul>
+              <li><span class="ar">حوّلت مشاكل الإدارة لميزات واضحة.</span><span class="en">Turned admin pain points into clear features.</span></li>
+              <li><span class="ar">بنيت المنصة على Firebase واستضفتها على GitHub.</span><span class="en">Built it on Firebase and hosted it on GitHub.</span></li>
+              <li><span class="ar">صلاحيات: كل معلمة بتشوف حلقتها بس.</span><span class="en">Permissions: each teacher sees only her circle.</span></li>
+            </ul></dd></div>
+            <div><dt><span class="ar">المخرجات</span><span class="en">Deliverables</span></dt><dd><ul class="ticks">
+              <li><span class="ar">نسخة تجريبية للإدارة</span><span class="en">Demo version for the admins</span></li>
+              <li><span class="ar">قاعدة بيانات وصلاحيات على Firebase</span><span class="en">Firebase database and permissions</span></li>
+            </ul></dd></div>
+          </dl>
+        </div>
+        <div class="exhibit">
+          <span class="cap2"><span class="ar">نموذج: الأدوار</span><span class="en">Sample: roles</span></span>
+          <div class="roles">
+            <div class="role"><b><span class="ar">الإدارة</span><span class="en">Admin</span></b><span><span class="ar">كل الحلقات، الطالبات، والتقارير</span><span class="en">All circles, students and reports</span></span></div>
+            <div class="role"><b><span class="ar">المعلمة</span><span class="en">Teacher</span></b><span><span class="ar">حلقتها فقط: حضور، تسميع، تقرير</span><span class="en">Her circle only: attendance, recitation, report</span></span></div>
+          </div>
+          <span class="cap2"><span class="ar">الميزات</span><span class="en">Features</span></span>
+          <div class="tags">
+            <span><span class="ar">اختبارات 3 و5 أجزاء مع تنبيه</span><span class="en">3- &amp; 5-juz exams with alerts</span></span>
+            <span><span class="ar">الختمات حسب الدفعة</span><span class="en">Completions by cohort</span></span>
+            <span><span class="ar">حضور أسبوعي وشهري</span><span class="en">Weekly &amp; monthly attendance</span></span>
+            <span><span class="ar">الغياب بعذر</span><span class="en">Excused absences</span></span>
+            <span><span class="ar">تقارير الحلقات</span><span class="en">Circle reports</span></span>
+            <span><span class="ar">متابعة التجويد</span><span class="en">Tajweed follow-up</span></span>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- C6 -->
+    <dialog class="sheet" id="c6"><div class="sheet-bar"><span class="label"><span class="ar">تقنية · 6 من 6</span><span class="en">Tech · 6 of 6</span></span><div class="sheet-act"><button class="btn primary sm" type="button" data-pdf="c6"><span class="ar">تنزيل PDF</span><span class="en">Download PDF</span></button><button class="xbtn" type="button" data-close aria-label="Close">✕</button></div></div>
+      <div class="case">
+        <div class="txt">
+          <span class="label"><span class="ar">منتج شخصي · ويب</span><span class="en">Personal product · Web</span></span>
+          <h3><span class="ar">«دفتر نور»: مخطط شخصي بيتزامن بين الأجهزة</span><span class="en">“Daftar Nour”: a planner that syncs across devices</span></h3>
+          <span class="who">GitHub Pages · Firebase</span>
+          <dl>
+            <div><dt><span class="ar">التحدي</span><span class="en">The challenge</span></dt><dd><span class="ar">جامعة وتدريبات وشغل بنفس الوقت، والأهداف موزعة بين دفتر ورق وأكثر من تطبيق.</span><span class="en">University, trainings and work at once, with goals spread between a paper notebook and several apps.</span></dd></div>
+            <div><dt><span class="ar">اللي عملته</span><span class="en">What I did</span></dt><dd><ul>
+              <li><span class="ar">صممت مخطط بأربع أقسام واضحة بدل قائمة طويلة.</span><span class="en">Designed four clear sections instead of one long list.</span></li>
+              <li><span class="ar">بنيته على GitHub Pages وFirebase ليتزامن بين الجوال واللابتوب.</span><span class="en">Built it on GitHub Pages and Firebase so it syncs between phone and laptop.</span></li>
+              <li><span class="ar">عدّلت التصميم أكثر من مرة لحد ما صار هادي ومريح.</span><span class="en">Iterated the design until it felt calm and easy.</span></li>
+            </ul></dd></div>
+            <div><dt><span class="ar">المخرجات</span><span class="en">Deliverables</span></dt><dd><ul class="ticks">
+              <li><span class="ar">موقع شغّال بستخدمه يوميًا</span><span class="en">A live site I use daily</span></li>
+              <li><span class="ar">تقويم شهري، عادات، وتحدي 100 يوم</span><span class="en">Monthly calendar, habits and a 100-day challenge</span></li>
+            </ul></dd></div>
+          </dl>
+        </div>
+        <div class="exhibit">
+          <span class="cap2"><span class="ar">نموذج: الأقسام الأربعة</span><span class="en">Sample: the four sections</span></span>
+          <div class="quad">
+            <div><b><span class="ar">ديني</span><span class="en">Faith</span></b><span><span class="ar">صلوات، أذكار، حفظ يومي</span><span class="en">Prayers, adhkar, daily memorisation</span></span></div>
+            <div><b><span class="ar">نفسي</span><span class="en">Self</span></b><span><span class="ar">عادات: ماء، فيتامين، عناية</span><span class="en">Habits: water, vitamins, care</span></span></div>
+            <div><b><span class="ar">علمي</span><span class="en">Study</span></b><span><span class="ar">مساقات بوحدات قابلة للتأشير</span><span class="en">Courses split into tickable units</span></span></div>
+            <div><b><span class="ar">تطوير</span><span class="en">Growth</span></b><span><span class="ar">تدريبات ودورات</span><span class="en">Trainings and courses</span></span></div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">04 — <span class="ar">المؤهلات</span><span class="en">Credentials</span></span>
+      <h2><span class="ar">بدرس، بتدرّب، <em class="g">وبنشر.</em></span><span class="en">Studied, trained, <em class="g">published.</em></span></h2>
+    </div>
+    <div class="cred">
+      <div class="degree">
+        <span class="label"><span class="ar">بكالوريوس الحوسبة المتنقلة</span><span class="en">B.Sc. Mobile Computing</span></span>
+        <span class="gpa">89%</span>
+        <h3 style="font-size:24px"><span class="ar">جامعة الإسراء، غزة · سنة التخرج</span><span class="en">Israa University, Gaza · final year</span></h3>
+        <p><span class="ar">تطوير تطبيقات الهواتف، الذكاء الاصطناعي، تصميم تجربة المستخدم، قواعد البيانات، الحوسبة السحابية، والتجارة الإلكترونية.</span><span class="en">Mobile App Development, AI, User Experience Design, Databases, Cloud Computing and E-Commerce.</span></p>
+        <div class="book">
+          <span class="label"><span class="ar">منشور</span><span class="en">Published</span></span>
+          <b>We Are Still Here</b>
+          <p><span class="ar">مقالان وثلاث قصائد بالإنجليزية · Daraja Press، كندا، 2025</span><span class="en">Two essays and three poems in English · Daraja Press, Canada, 2025</span></p>
+        </div>
+      </div>
+      <div class="certs">
+        <div class="cert now"><div><b>McKinsey.org Forward</b><span><span class="ar">مهارات العمل الأساسية · جارٍ</span><span class="en">Core workplace skills · in progress</span></span></div><em>2026</em></div>
+        <div class="cert"><div><b>CodeMap 2026 – Digital Marketing</b><span>TAQAT · <span class="ar">144 ساعة</span><span class="en">144 h</span></span></div><em>2026</em></div>
+        <div class="cert"><div><b><span class="ar">تدريب UX/UI</span><span class="en">UX/UI Training</span></b><span>C2C · <span class="ar">جارٍ</span><span class="en">in progress</span></span></div><em>2026</em></div>
+        <div class="cert"><div><b><span class="ar">احتراف الإعلانات الممولة</span><span class="en">Professional Paid Advertising</span></b><span>Learn More · <span class="ar">20 ساعة</span><span class="en">20 h</span></span></div><em>2026</em></div>
+        <div class="cert"><div><b>Claude 101 · AI Fluency</b><span>Anthropic</span></div><em>2026</em></div>
+        <div class="cert"><div><b><span class="ar">التسويق الرقمي · مهارات العمل الحر</span><span class="en">Digital Marketing · Freelance Skills</span></b><span>Digiwork / GIZ · <span class="ar">70 ساعة</span><span class="en">70 h</span></span></div><em>2025</em></div>
+        <div class="cert"><div><b>Conversational English</b><span>University of Sussex</span></div><em>2025</em></div>
+        <div class="cert"><div><b>Digital Analytics · Online Presence · Writing</b><span><span class="ar">إدراك</span><span class="en">Edraak</span></span></div><em>2025</em></div>
+        <div class="cert"><div><b>ICDL</b><span>Learn More · <span class="ar">30 ساعة</span><span class="en">30 h</span></span></div><em>2025</em></div>
+        <div class="cert"><div><b><span class="ar">اللغات</span><span class="en">Languages</span></b><span><span class="ar">العربية (أم) · الإنجليزية (جيد جدًا)</span><span class="en">Arabic (native) · English (very good)</span></span></div><em></em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <span class="label"><span class="ar">تواصل</span><span class="en">Contact</span></span>
+    <h2><span class="ar">خلينا نبني <em class="g">شي حلو.</em></span><span class="en">Let's build <em class="g">something good.</em></span></h2>
+    <p style="color:var(--muted);max-width:60ch"><span class="ar">متاحة لوظائف التسويق الرقمي وUX/UI عن بُعد، ولمشاريع فريلانس.</span><span class="en">Open to remote digital marketing and UX/UI roles, and freelance projects.</span></p>
+    <div class="row"><span class="line" id="email">nour.marketing.ads@gmail.com</span><button class="btn primary" id="copyBtn" type="button"><span class="ar">نسخ الإيميل</span><span class="en">Copy email</span></button></div>
+    <div class="row"><span class="line" dir="ltr">+970 59 528 8728</span><a class="btn ghost" href="https://wa.me/970595288728" target="_blank" rel="noopener"><span class="ar">راسلني على واتساب</span><span class="en">Message on WhatsApp</span></a><a class="btn ghost" href="https://www.linkedin.com/in/nourabusultan" target="_blank" rel="noopener">LinkedIn</a></div>
+    <p class="note"><span class="ar">أسماء العملاء مخفية حفاظًا على خصوصيتهم، والنماذج معاد بناؤها لتوضيح الهيكل.</span><span class="en">Client names are withheld; samples are reconstructed to show the structure.</span></p>
+  </div>
+</section>
+</main>
+
+<footer class="wrap"><span>© 2026 Nour Abusultan</span><span>nour.marketing.ads@gmail.com</span></footer>
+
+<div id="printArea" aria-hidden="true"></div>
+
+<script>
+(function(){
+  var root=document.documentElement,saved=null;
+  try{saved=localStorage.getItem('lang')}catch(e){}
+  function set(l){root.setAttribute('data-lang',l);root.setAttribute('lang',l);root.setAttribute('dir',l==='ar'?'rtl':'ltr');try{localStorage.setItem('lang',l)}catch(e){}}
+  set(saved==='en'?'en':'ar');
+  document.getElementById('langBtn').addEventListener('click',function(){set(root.getAttribute('data-lang')==='ar'?'en':'ar')});
+
+  var btn=document.getElementById('copyBtn'),mail=document.getElementById('email');
+  btn.addEventListener('click',function(){
+    function sel(){var r=document.createRange();r.selectNodeContents(mail);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+    function done(){btn.querySelector('.ar').textContent='تم النسخ';btn.querySelector('.en').textContent='Copied'}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(mail.textContent).then(done).catch(sel)}else{sel()}
+  });
+
+  var fbtns=document.querySelectorAll('.filters button');
+  fbtns.forEach(function(b){b.addEventListener('click',function(){
+    fbtns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    document.querySelectorAll('.ccard').forEach(function(c){c.hidden=!(b.dataset.f==='all'||c.dataset.k===b.dataset.f)});
+  })});
+
+  document.querySelectorAll('[data-open]').forEach(function(b){
+    b.addEventListener('click',function(){var d=document.getElementById(b.dataset.open);if(d&&d.showModal){d.showModal();d.scrollTop=0}});
+  });
+  document.querySelectorAll('dialog.sheet').forEach(function(d){
+    d.addEventListener('click',function(e){if(e.target===d)d.close()});
+    d.querySelector('[data-close]').addEventListener('click',function(){d.close()});
+  });
+
+  var area=document.getElementById('printArea');
+  function head(){
+    var ar=root.getAttribute('data-lang')==='ar';
+    return '<div class="phead"><b>'+(ar?'نور أبو سلطان':'Nour Abusultan')+'</b><span>'+(ar?'تسويق رقمي · UX/UI · حوسبة متنقلة':'Digital Marketing · UX/UI · Mobile Computing')+'<br>nour.marketing.ads@gmail.com · +970 59 528 8728<br>linkedin.com/in/nourabusultan</span></div>';
+  }
+  document.querySelectorAll('[data-pdf]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var id=b.dataset.pdf,html=head();
+      var list=id==='all'?document.querySelectorAll('dialog.sheet'):[document.getElementById(id)];
+      list.forEach(function(d){var c=d.querySelector('.case');if(c)html+=c.outerHTML});
+      area.innerHTML=html;
+      document.querySelectorAll('dialog.sheet[open]').forEach(function(d){d.close()});
+      document.body.classList.add('printing');
+      var old=document.title;document.title=(root.getAttribute('data-lang')==='ar'?'نور أبو سلطان - المشاريع':'Nour Abusultan - Work');
+      function done(){document.body.classList.remove('printing');area.innerHTML='';document.title=old;window.removeEventListener('afterprint',done)}
+      window.addEventListener('afterprint',done);
+      setTimeout(function(){try{window.print()}catch(e){}},60);
+    });
+  });
+})();
+</script>
+</body></html>
